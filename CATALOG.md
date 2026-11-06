@@ -7,9 +7,10 @@ testes automatizados desenvolvidos com foco em robustez corporativa e excelênci
 | Categoria | Título / Algoritmo | Complexidade | Status Testes |
 | :--- | :--- | :--- | :--- |
 | `Algorithms` | **Least Recently Used (LRU) Cache** | `Time: O(1) get/put | Space: O(capacity)` | ✅ 100% Passed |
+| `Algorithms` | **Search in Rotated Sorted Array** | `Time: O(log n) | Space: O(1)` | ✅ 100% Passed |
 
-> **Total de Módulos Catalogados:** 1 ativos.
-> **Última Atualização:** 2026-11-05 23:38:12 UTC-3
+> **Total de Módulos Catalogados:** 2 ativos.
+> **Última Atualização:** 2026-11-06 02:46:56 UTC-3
 
 ---
 Desenvolvido por **Eng. Deivis Irio Mayer (Kether1)** · **TECHDIM INOVA SIMPLES (I.S.) - ME**
