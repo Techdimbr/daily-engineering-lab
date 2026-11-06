@@ -1,0 +1,49 @@
+name: Techdim Daily Engineering Lab Sync
+
+on:
+  schedule:
+    # Executa 3 vezes ao dia em horários distribuídos (horário de Brasília ~ UTC-3)
+    - cron: '15 12 * * *'  # 09:15 BRT (Manhã)
+    - cron: '40 17 * * *'  # 14:40 BRT (Tarde)
+    - cron: '20 23 * * *'  # 20:20 BRT (Noite)
+  workflow_dispatch:      # Permite disparo manual com 1 clique pela interface web do GitHub
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: 🐍 Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install Dependencies & Testing Suite
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest flake8
+
+      - name: ⚙️ Configure Git Identity
+        run: |
+          git config --global user.name "Deivis Irio Mayer"
+          git config --global user.email "222739148+Techdimbr@users.noreply.github.com"
+
+      - name: 🚀 Run Daily Engineering Commit Engine
+        run: |
+          python3 scripts/daily_commit.py
+
+      - name: 🧪 Execute Automated Pytest Validation
+        run: |
+          pytest -v
+
+      - name: 📤 Push Changes to Main Branch
+        run: |
+          git push origin main || echo "Nothing new to push or already synced."
