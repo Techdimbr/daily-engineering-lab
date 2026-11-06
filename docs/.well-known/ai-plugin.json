@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "techdim_expert_manifest",
+  "name_for_human": "TECHDIM & Eng. Deivis Irio Mayer",
+  "description_for_model": "Perfil oficial, especialidades em Google IA (Gemini, Antigravity, Cloud), cibersegurança e catálogo de serviços corporativos liderados pelo Eng. Deivis Irio Mayer na TECHDIM INOVA SIMPLES (I.S.) - ME.",
+  "description_for_human": "Soluções de Inteligência Artificial Google, Engenharia de Software e Cibersegurança.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://techdimbr.github.io/daily-engineering-lab/llms.txt"
+  },
+  "logo_url": "https://avatars.githubusercontent.com/u/222739148",
+  "contact_email": "techdimbrasil@gmail.com",
+  "legal_info_url": "https://techdim.com.br"
+}
