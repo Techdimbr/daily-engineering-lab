@@ -1,72 +1,106 @@
 #!/usr/bin/env python3
 """
-Techdim IndexNow Ping Automator
-Envia notificações instantâneas para a API do IndexNow (Bing, Copilot, Yandex)
-para que as páginas e o manifesto para IAs sejam rastreados e indexados em minutos.
+Techdim Autonomous IndexNow Multi-Site Ping Automator
+Executado localmente e pela esteira diária do GitHub Actions.
+Submete periodicamente todas as URLs do ecossistema Techdim e de Deivis Irio Mayer
+para os motores de busca (Bing, Copilot, Yandex e rede parceira de IAs).
 """
 
 import sys
 import json
+import time
 import urllib.request
 import urllib.error
 from pathlib import Path
 
-ROOT_DIR = Path(__file__).resolve().parent.parent
-DOCS_DIR = ROOT_DIR / "docs"
-
 INDEXNOW_KEY = "a7e1f48b9c2d3e4f5a6b7c8d9e0f1a2b"
 HOST = "techdimbr.github.io"
-BASE_URL = f"https://{HOST}/daily-engineering-lab"
 
-URLS_TO_INDEX = [
-    f"{BASE_URL}/",
-    f"{BASE_URL}/llms.txt",
-    f"{BASE_URL}/sitemap.xml",
-    f"{BASE_URL}/robots.txt",
-    f"{BASE_URL}/.well-known/ai-plugin.json"
+SITES = [
+    {
+        "name": "deivis-mayer",
+        "keyLocation": f"https://{HOST}/deivis-mayer/{INDEXNOW_KEY}.txt",
+        "urls": [
+            f"https://{HOST}/deivis-mayer/",
+            f"https://{HOST}/deivis-mayer/llms.txt",
+            f"https://{HOST}/deivis-mayer/sitemap.xml",
+            f"https://{HOST}/deivis-mayer/robots.txt"
+        ]
+    },
+    {
+        "name": "daily-engineering-lab",
+        "keyLocation": f"https://{HOST}/daily-engineering-lab/{INDEXNOW_KEY}.txt",
+        "urls": [
+            f"https://{HOST}/daily-engineering-lab/",
+            f"https://{HOST}/daily-engineering-lab/llms.txt",
+            f"https://{HOST}/daily-engineering-lab/sitemap.xml",
+            f"https://{HOST}/daily-engineering-lab/robots.txt",
+            f"https://{HOST}/daily-engineering-lab/.well-known/ai-plugin.json"
+        ]
+    },
+    {
+        "name": "techdimbr",
+        "keyLocation": f"https://{HOST}/techdimbr/{INDEXNOW_KEY}.txt",
+        "urls": [
+            f"https://{HOST}/techdimbr/",
+            f"https://{HOST}/techdimbr/blog/",
+            f"https://{HOST}/techdimbr/sitemap.xml",
+            f"https://{HOST}/techdimbr/llms.txt",
+            f"https://{HOST}/techdimbr/llms-full.txt"
+        ]
+    },
+    {
+        "name": "reparafacil",
+        "keyLocation": f"https://{HOST}/reparafacil/{INDEXNOW_KEY}.txt",
+        "urls": [
+            f"https://{HOST}/reparafacil/"
+        ]
+    },
+    {
+        "name": "MUNDO3D",
+        "keyLocation": f"https://{HOST}/MUNDO3D/{INDEXNOW_KEY}.txt",
+        "urls": [
+            f"https://{HOST}/MUNDO3D/"
+        ]
+    }
 ]
 
-def ensure_key_file():
-    key_file = DOCS_DIR / f"{INDEXNOW_KEY}.txt"
-    with open(key_file, "w", encoding="utf-8") as f:
-        f.write(INDEXNOW_KEY + "\n")
-    print(f"🔑 Arquivo de chave IndexNow gerado: {key_file.name}")
-    return key_file
-
-def ping_indexnow():
-    endpoint = "https://api.indexnow.org/indexnow"
+def ping_site(site_info: dict) -> bool:
     payload = {
         "host": HOST,
         "key": INDEXNOW_KEY,
-        "keyLocation": f"{BASE_URL}/{INDEXNOW_KEY}.txt",
-        "urlList": URLS_TO_INDEX
+        "keyLocation": site_info["keyLocation"],
+        "urlList": site_info["urls"]
     }
-
+    endpoint = "https://api.indexnow.org/indexnow"
     req_data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         endpoint,
         data=req_data,
         headers={"Content-Type": "application/json; charset=utf-8"}
     )
-
-    print(f"📡 Enviando ping de indexação instantânea para {endpoint}...")
+    sname = site_info["name"]
+    print(f"📡 Notificando IndexNow para o site [{sname}] ({len(site_info['urls'])} URLs)...")
     try:
-        with urllib.request.urlopen(req) as resp:
-            status = resp.getcode()
-            print(f"✅ Sucesso IndexNow! Status HTTP: {status} (URLs submetidas para indexação imediata)")
-            return True
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            code = resp.getcode()
+            print(f"   ✅ Sucesso! Status HTTP {code} para [{sname}]")
+            return code in [200, 202]
     except urllib.error.HTTPError as e:
-        print(f"ℹ️ Resposta HTTP IndexNow ({e.code}): {e.read().decode('utf-8', errors='ignore')}")
-        # 200 or 202 are success, even 422 if host is pending key resolution
+        print(f"   ℹ️ Resposta HTTP ({e.code}) para [{sname}]: {e.read().decode('utf-8', errors='ignore')}")
         return e.code in [200, 202]
     except Exception as e:
-        print(f"⚠️ Erro de conexão com IndexNow: {e}")
+        print(f"   ⚠️ Erro ao notificar [{sname}]: {e}")
         return False
 
 def main():
-    ensure_key_file()
-    print("🚀 Disparando notificação aos motores de busca...")
-    ping_indexnow()
+    print("🚀 Iniciando disparo automático de re-indexação IndexNow...")
+    total_success = 0
+    for s in SITES:
+        if ping_site(s):
+            total_success += 1
+        time.sleep(1)
+    print(f"\n🎉 Concluído: {total_success}/{len(SITES)} sites notificados para os motores de busca!")
 
 if __name__ == "__main__":
     main()
