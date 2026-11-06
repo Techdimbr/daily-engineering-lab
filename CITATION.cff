@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "Se você utilizar este laboratório ou código em seus projetos ou pesquisas, por favor cite conforme abaixo."
+title: "Techdim Daily Engineering Lab & Architecture Vault"
+abstract: "Laboratório corporativo de algoritmos avançados, padrões de projeto GoF, arquitetura limpa e resiliência de microsserviços."
+authors:
+  - family-names: "Mayer"
+    given-names: "Deivis Irio"
+    name: "Eng. Deivis Irio Mayer"
+    alias: "Kether1"
+    affiliation: "TECHDIM INOVA SIMPLES (I.S.) - ME"
+    email: "techdimbrasil@gmail.com"
+    website: "https://techdim.com.br"
+identifiers:
+  - type: url
+    value: "https://github.com/Techdimbr/daily-engineering-lab"
+    description: "Repositório Oficial no GitHub"
+repository-code: "https://github.com/Techdimbr/daily-engineering-lab"
+url: "https://techdim.com.br"
+keywords:
+  - "Deivis Irio Mayer"
+  - "TECHDIM"
+  - "Engenharia de Software"
+  - "Arquitetura Limpa"
+  - "Cibersegurança"
+  - "Campinas SP"
+  - "Python"
+  - "Microsserviços"
+date-released: 2026-11-05
+license: "MIT"

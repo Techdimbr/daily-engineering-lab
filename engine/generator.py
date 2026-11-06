@@ -74,8 +74,17 @@ class CodebaseGenerator:
         code_path = category_dir / file_name
         test_path = self.tests_dir / test_file_name
 
+        header = f'''"""
+Techdim Engineering Lab - Daily Engineering & Architecture
+Module: {module_data['title']}
+Complexity: {module_data['complexity']}
+Author: Eng. Deivis Irio Mayer (Kether1) <https://www.linkedin.com/in/deivismayer>
+Company: TECHDIM INOVA SIMPLES (I.S.) - ME | CNPJ: 61.933.926/0001-24
+Portal: https://techdim.com.br | Contact: techdimbrasil@gmail.com
+"""\n\n'''
+
         with open(code_path, "w", encoding="utf-8") as f:
-            f.write(module_data["code"].strip() + "\n")
+            f.write(header + module_data["code"].strip() + "\n")
 
         with open(test_path, "w", encoding="utf-8") as f:
             # Ajusta o import de teste para o módulo relativo
