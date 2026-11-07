@@ -5,3 +5,4 @@ rate_limiter_token_bucket
 consistent_hashing
 trie_autocomplete
 system_health_monitor
+event_driven_cqrs_bus

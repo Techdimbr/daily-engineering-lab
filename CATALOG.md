@@ -13,9 +13,10 @@ testes automatizados desenvolvidos com foco em robustez corporativa e excelênci
 | `System architecture` | **Consistent Hashing Ring** | `Lookup: O(log N) via bisect | Balanceamento com V-Nodes` | ✅ 100% Passed |
 | `Algorithms` | **Trie Prefix Tree with Autocomplete** | `Insert: O(L) | Search Prefix: O(P + K) onde L=tamanho palavra` | ✅ 100% Passed |
 | `Linux devops` | **Linux System Health & Memory Telemetry** | `Lightweight /proc parser | No external daemon dependencies` | ✅ 100% Passed |
+| `System architecture` | **CQRS Event-Driven In-Memory Bus** | `Pub/Sub O(1) registration | O(M) dispatch handlers` | ✅ 100% Passed |
 
-> **Total de Módulos Catalogados:** 7 ativos.
-> **Última Atualização:** 2026-11-07 17:46:30 UTC-3
+> **Total de Módulos Catalogados:** 8 ativos.
+> **Última Atualização:** 2026-11-07 21:05:19 UTC-3
 
 ---
 Desenvolvido por **Eng. Deivis Irio Mayer (Kether1)** · **TECHDIM INOVA SIMPLES (I.S.) - ME**
