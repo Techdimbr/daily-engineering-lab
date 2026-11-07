@@ -11,9 +11,10 @@ testes automatizados desenvolvidos com foco em robustez corporativa e excelênci
 | `Design patterns` | **Circuit Breaker Pattern** | `State Machine: Closed -> Open -> Half-Open` | ✅ 100% Passed |
 | `Design patterns` | **Token Bucket Rate Limiter** | `Time: O(1) | Space: O(1)` | ✅ 100% Passed |
 | `System architecture` | **Consistent Hashing Ring** | `Lookup: O(log N) via bisect | Balanceamento com V-Nodes` | ✅ 100% Passed |
+| `Algorithms` | **Trie Prefix Tree with Autocomplete** | `Insert: O(L) | Search Prefix: O(P + K) onde L=tamanho palavra` | ✅ 100% Passed |
 
-> **Total de Módulos Catalogados:** 5 ativos.
-> **Última Atualização:** 2026-11-06 22:23:13 UTC-3
+> **Total de Módulos Catalogados:** 6 ativos.
+> **Última Atualização:** 2026-11-07 02:54:35 UTC-3
 
 ---
 Desenvolvido por **Eng. Deivis Irio Mayer (Kether1)** · **TECHDIM INOVA SIMPLES (I.S.) - ME**

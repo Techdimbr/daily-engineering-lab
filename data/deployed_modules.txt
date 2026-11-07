@@ -3,3 +3,4 @@ binary_search_rotated
 circuit_breaker
 rate_limiter_token_bucket
 consistent_hashing
+trie_autocomplete
