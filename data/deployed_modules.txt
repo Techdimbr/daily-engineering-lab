@@ -6,3 +6,4 @@ consistent_hashing
 trie_autocomplete
 system_health_monitor
 event_driven_cqrs_bus
+circuit_breaker_v9
