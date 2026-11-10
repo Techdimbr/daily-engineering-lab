@@ -12,3 +12,4 @@ event_driven_cqrs_bus_v11
 circuit_breaker_v12
 binary_search_rotated_v13
 trie_autocomplete_v14
+trie_autocomplete_v15
