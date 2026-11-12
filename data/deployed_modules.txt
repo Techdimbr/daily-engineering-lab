@@ -19,3 +19,4 @@ binary_search_rotated_v18
 trie_autocomplete_v19
 circuit_breaker_v20
 lru_cache_v21
+event_driven_cqrs_bus_v22
