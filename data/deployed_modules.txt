@@ -21,3 +21,4 @@ circuit_breaker_v20
 lru_cache_v21
 event_driven_cqrs_bus_v22
 circuit_breaker_v23
+circuit_breaker_v24
