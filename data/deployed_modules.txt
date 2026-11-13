@@ -23,3 +23,4 @@ event_driven_cqrs_bus_v22
 circuit_breaker_v23
 circuit_breaker_v24
 lru_cache_v25
+consistent_hashing_v26
