@@ -27,3 +27,4 @@ consistent_hashing_v26
 trie_autocomplete_v27
 system_health_monitor_v28
 consistent_hashing_v29
+lru_cache_v30
