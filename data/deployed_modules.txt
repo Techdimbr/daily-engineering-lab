@@ -31,3 +31,4 @@ lru_cache_v30
 consistent_hashing_v31
 consistent_hashing_v32
 lru_cache_v33
+binary_search_rotated_v34
