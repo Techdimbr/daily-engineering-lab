@@ -41,3 +41,4 @@ consistent_hashing_v40
 system_health_monitor_v41
 lru_cache_v42
 system_health_monitor_v43
+circuit_breaker_v44
