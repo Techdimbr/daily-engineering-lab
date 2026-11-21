@@ -45,3 +45,4 @@ circuit_breaker_v44
 binary_search_rotated_v45
 rate_limiter_token_bucket_v46
 trie_autocomplete_v47
+binary_search_rotated_v48
