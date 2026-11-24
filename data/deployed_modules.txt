@@ -54,3 +54,4 @@ binary_search_rotated_v53
 binary_search_rotated_v54
 circuit_breaker_v55
 rate_limiter_token_bucket_v56
+trie_autocomplete_v57
