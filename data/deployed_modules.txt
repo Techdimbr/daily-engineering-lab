@@ -53,3 +53,4 @@ lru_cache_v52
 binary_search_rotated_v53
 binary_search_rotated_v54
 circuit_breaker_v55
+rate_limiter_token_bucket_v56
