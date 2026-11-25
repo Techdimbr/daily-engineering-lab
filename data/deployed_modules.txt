@@ -57,3 +57,4 @@ rate_limiter_token_bucket_v56
 trie_autocomplete_v57
 consistent_hashing_v58
 consistent_hashing_v59
+trie_autocomplete_v60
