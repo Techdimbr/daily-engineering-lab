@@ -59,3 +59,4 @@ consistent_hashing_v58
 consistent_hashing_v59
 trie_autocomplete_v60
 circuit_breaker_v61
+lru_cache_v62
