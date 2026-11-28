@@ -65,3 +65,4 @@ circuit_breaker_v64
 binary_search_rotated_v65
 consistent_hashing_v66
 event_driven_cqrs_bus_v67
+binary_search_rotated_v68
